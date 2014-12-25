@@ -12,7 +12,7 @@ function scrobbler() {
         $nowplaying = $xml->recenttracks->track->attributes()->nowplaying;
 
 	if (!is_null($nowplaying) && $nowplaying == 'true') {
-            return 'now playing: ' . $artist . ' / ' . $album . ' / ' . $title;
+            return '&#128266; ' . $artist . ' / ' . $album . ' / ' . $title;
         }
 	return false;
 }
@@ -20,7 +20,7 @@ function scrobbler() {
 $lastfm = scrobbler();
 
 $trans = array("3" => "3⃣", "4" => "4⃣", "5" => "5⃣", "6" => "6⃣", "7" => "7⃣", "8" => "8⃣", "9" => "9⃣", "0" => "0⃣", "1" => "1⃣", "2" => "2⃣", );
-$status = strtr($lastfm, $trans);
+$status = $lastfm;
 $url = curl('https://api.vk.com/method/status.set?text='.urlencode($status).'&access_token='.$access_token);
 function curl( $url ){
 $ch = curl_init( $url );
