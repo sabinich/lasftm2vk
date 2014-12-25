@@ -3,7 +3,7 @@ $access_token = '<TOKEN>';
 
 function scrobbler() {
 
-        $request_url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sabinich&api_key=<API_KEY>';
+        $request_url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=<USER>&api_key=<API_KEY>';
 
         $xml = simplexml_load_file ($request_url);
         $title = $xml->recenttracks->track->name;
@@ -19,7 +19,6 @@ function scrobbler() {
 
 $lastfm = scrobbler();
 
-$trans = array("3" => "3⃣", "4" => "4⃣", "5" => "5⃣", "6" => "6⃣", "7" => "7⃣", "8" => "8⃣", "9" => "9⃣", "0" => "0⃣", "1" => "1⃣", "2" => "2⃣", );
 $status = $lastfm;
 $url = curl('https://api.vk.com/method/status.set?text='.urlencode($status).'&access_token='.$access_token);
 function curl( $url ){
