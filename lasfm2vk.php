@@ -17,9 +17,7 @@ function scrobbler() {
 	return false;
 }
 
-$lastfm = scrobbler();
-
-$status = $lastfm;
+$status = scrobbler();
 $url = curl('https://api.vk.com/method/status.set?text='.urlencode($status).'&access_token='.$access_token);
 function curl( $url ){
 $ch = curl_init( $url );
