@@ -14,7 +14,7 @@ function scrobbler() {
 	if (!is_null($nowplaying) && $nowplaying == 'true') {
             return '&#128266; ' . $artist . ' / ' . $album . ' / ' . $title;
         }
-	return false;
+	return '&#128263;';
 }
 
 $status = scrobbler();
