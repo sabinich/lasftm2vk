@@ -18,7 +18,7 @@ function scrobbler() {
 }
 
 $status = scrobbler();
-$url = curl('https://api.vk.com/method/status.set?text='.urlencode($status).'&access_token='.$access_token.'$v='5.74');
+$url = curl('https://api.vk.com/method/status.set?text='.urlencode($status).'&access_token='.$access_token.'&v='5.81');
 function curl( $url ){
 $ch = curl_init( $url );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
